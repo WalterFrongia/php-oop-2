@@ -1,17 +1,13 @@
-<!-- 1)CREARE DELLE CLASSI DI UNO SHOP ONLINE.
-    2)INSERIRE COME CLASSI PRODOTTI E UTENTI CHE ACQUISTANO 
-    3)FARE INTERAGIRE TRA LORO GLI OGGETTI, ESEMPIO UTENTE CHE INSERISCE CARTA DI CREDITO
-
-ESEMPIO:   $c = new CreditCard(..); / $user->insertCreditCard($c); -->
-<!-- // carta di credito
-// indirizzo -->
-
 <?php
 
-class Articol{
+class Article{
+    public $name;
+    public $price;
     public $categories; 
 
-    public function __construct($_categories){
+    public function __construct($_name, $_price, $_categories ){
+        $this->name = $_name;
+        $this->price = $_price;
         $this->categories = $_categories;
     }
 }
@@ -28,15 +24,25 @@ class Users{
 
 class Cart{
     public $status;
-    public $totalArticles; 
-    public $price;
+    public $articles =[];
 
-    public function __construct($_status, $_totalArticles, $price){
+    public function __construct($_status){
         $this->status = $_status;
-        $this->totalArticles = $totalArticles;
-        $this->price = $_price;
+        
+    }
+    public function addArticle($article){
+        array_push($this->articles,$article);
     }
 }
 
+
+$camicia = new Article("camicia",20,"abbigliamento");
+var_dump($camicia);
+
+$cart = new Cart("vuoto");
+var_dump($cart);
+
+$cart -> addArticle($camicia);
+var_dump($cart);
 
 ?>
