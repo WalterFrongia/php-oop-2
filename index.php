@@ -35,7 +35,6 @@ class Cart{
     }
 }
 
-
 $camicia = new Article("camicia",20,"abbigliamento");
 var_dump($camicia);
 
